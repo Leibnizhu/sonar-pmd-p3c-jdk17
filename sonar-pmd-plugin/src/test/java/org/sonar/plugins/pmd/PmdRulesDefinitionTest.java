@@ -19,8 +19,6 @@
  */
 package org.sonar.plugins.pmd;
 
-import java.util.List;
-
 import com.google.common.collect.Iterables;
 import org.junit.jupiter.api.Test;
 import org.sonar.api.PropertyType;
@@ -28,6 +26,8 @@ import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.api.server.rule.RulesDefinition.Param;
 import org.sonar.api.server.rule.RulesDefinition.Rule;
 import org.sonar.plugins.pmd.rule.PmdRulesDefinition;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -44,7 +44,7 @@ class PmdRulesDefinitionTest {
         assertThat(repository.language()).isEqualTo(PmdConstants.LANGUAGE_KEY);
 
         List<Rule> rules = repository.rules();
-        assertThat(rules).hasSize(268);
+        assertThat(rules).hasSize(324);
 
         for (Rule rule : rules) {
             assertThat(rule.key()).isNotNull();
