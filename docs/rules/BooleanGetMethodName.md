@@ -1,0 +1,8 @@
+# BooleanGetMethodName
+**Category:** `pmd`<br/>
+**Rule Key:** `pmd:BooleanGetMethodName`<br/>
+
+
+-----
+
+Looks for methods named "getX()" with "boolean" as the return type. The convention is to name these methods "isX()".
