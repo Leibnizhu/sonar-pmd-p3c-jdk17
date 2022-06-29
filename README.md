@@ -48,3 +48,33 @@ To build the plugin and run the integration tests:
 
     ./mvnw clean verify
    
+## 关于Alibaba P3c
+
+本repo在sonar-pmd基础上增加了alibaba-p3c规则，详细的修改包括：
+
+1. sonar-pmd-plugin 增加依赖
+
+   ```xml
+       <dependency>
+         <groupId>com.alibaba.p3c</groupId>
+         <artifactId>p3c-pmd</artifactId>
+         <!-- 请保持最新 -->
+         <version>2.1.1</version>
+       </dependency>
+       <dependency>
+         <groupId>com.google.code.gson</groupId>
+         <artifactId>gson</artifactId>
+         <version>2.9.0</version>
+       </dependency>
+   ```
+
+2. 修改 `/resources/org/sonar/l10n/pmd/rules/pmd.properties` ，增加 p3c 的规则。同时修改 `org.sonar.plugins.pmd.PmdRulesDefinitionTest.test` 里面对规则条数的断言，从268改实际的324。
+3. 增加 `/resources/org/sonar/plugins/pmd/rules-p3c.xml`
+4. 增加规则描述 html `/resources/org/sonar/l10n/pmd-p3c`
+5. 修改 `/resources/com/sonar/sqale/pmd-model.xml` 增加P3c相关
+6. 修改 PmdRulesDefinition.java，加入p3c规则：
+
+    ```java
+    //org.sonar.plugins.pmd.rule.PmdRulesDefinition#define 
+    extractRulesData(repository, "/org/sonar/plugins/pmd/rules-p3c.xml", "/org/sonar/l10n/pmd/rules/pmd-p3c");
+    ```
