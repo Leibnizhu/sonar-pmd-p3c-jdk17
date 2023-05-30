@@ -22,6 +22,8 @@ package com.sonar.it.java.suite.orchestrator;
 import com.sonar.orchestrator.Orchestrator;
 import com.sonar.orchestrator.build.BuildResult;
 import com.sonar.orchestrator.build.MavenBuild;
+import com.sonar.orchestrator.config.Configuration;
+import com.sonar.orchestrator.container.SonarDistribution;
 import com.sonar.orchestrator.locator.MavenLocation;
 import org.sonar.wsclient.SonarClient;
 import org.sonar.wsclient.issue.Issue;
@@ -84,22 +86,21 @@ public class PmdTestOrchestrator {
     }
 
     public static PmdTestOrchestrator init() {
-        final Orchestrator orchestrator = Orchestrator
-                .builderEnv()
-                .setSonarVersion(determineSonarqubeVersion())
-                .addPlugin(MavenLocation.create(
-                        "org.sonarsource.java",
-                        "sonar-java-plugin",
-                        determineJavaPluginVersion()
-                ))
-                .addPlugin(byWildcardMavenFilename(new File("../sonar-pmd-plugin/target"), "sonar-pmd-plugin-*.jar"))
-                .addPlugin(byWildcardMavenFilename(new File("./target"), "integration-test-*.jar"))
-                .restoreProfileAtStartup(ofClasspath("/com/sonar/it/java/PmdTest/pmd-junit-rules.xml"))
-                .restoreProfileAtStartup(ofClasspath("/com/sonar/it/java/PmdTest/pmd-extensions-profile.xml"))
-                .restoreProfileAtStartup(ofClasspath("/com/sonar/it/java/PmdTest/pmd-backup.xml"))
-                .restoreProfileAtStartup(ofClasspath("/com/sonar/it/java/PmdTest/pmd-all-rules.xml"))
-                .build();
-
+        Configuration config = Configuration.createEnv();
+        SonarDistribution distribution = new SonarDistribution()
+            .setVersion(determineSonarqubeVersion())
+            .addPluginLocation(MavenLocation.create(
+                "org.sonarsource.java",
+                "sonar-java-plugin",
+                determineJavaPluginVersion()
+            ))
+            .addPluginLocation(byWildcardMavenFilename(new File("../sonar-pmd-plugin/target"), "sonar-pmd-plugin-*.jar"))
+            .addPluginLocation(byWildcardMavenFilename(new File("./target"), "integration-test-*.jar"))
+            .restoreProfileAtStartup(ofClasspath("/com/sonar/it/java/PmdTest/pmd-junit-rules.xml"))
+            .restoreProfileAtStartup(ofClasspath("/com/sonar/it/java/PmdTest/pmd-extensions-profile.xml"))
+            .restoreProfileAtStartup(ofClasspath("/com/sonar/it/java/PmdTest/pmd-backup.xml"))
+            .restoreProfileAtStartup(ofClasspath("/com/sonar/it/java/PmdTest/pmd-all-rules.xml"));
+        final Orchestrator orchestrator = new Orchestrator(config, distribution, null);
         return new PmdTestOrchestrator(orchestrator);
     }
 
