@@ -88,6 +88,7 @@ public class PmdTestOrchestrator {
     public static PmdTestOrchestrator init() {
         Configuration config = Configuration.createEnv();
         SonarDistribution distribution = new SonarDistribution()
+            .useDefaultAdminCredentialsForBuilds(true)
             .setVersion(determineSonarqubeVersion())
             .addPluginLocation(MavenLocation.create(
                 "org.sonarsource.java",
