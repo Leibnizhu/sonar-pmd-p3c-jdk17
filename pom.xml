@@ -337,7 +337,7 @@
       <id>release</id>
       <build>
         <plugins>
-          <!--<plugin>
+          <!-- <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
             <version>${maven.gpg.plugin.version}</version>
@@ -356,7 +356,7 @@
                 <arg>loopback</arg>
               </gpgArguments>
             </configuration>
-          </plugin>-->
+          </plugin> -->
         </plugins>
       </build>
     </profile>
