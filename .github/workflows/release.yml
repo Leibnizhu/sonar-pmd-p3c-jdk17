@@ -49,4 +49,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: jar
-          path: target/*.jar
+          path: sonar-pmd-plugin/target/*.jar
