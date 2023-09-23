@@ -28,8 +28,8 @@
   <packaging>pom</packaging>
 
   <scm>
-    <connection>scm:git:git@github.com:Leibnizhu/sonar-pmd-p3c-jdk17.git</connection>
-    <developerConnection>scm:git:git@github.com:Leibnizhu/sonar-pmd-p3c-jdk17.git</developerConnection>
+    <connection>scm:git:https://Leibnizhu:${ACCESS_TOKEN}@github.com/Leibnizhu/sonar-pmd-p3c-jdk17.git</connection>
+    <developerConnection>scm:git:https://Leibnizhu:${ACCESS_TOKEN}@github.com/Leibnizhu/sonar-pmd-p3c-jdk17.git</developerConnection>
     <url>https://github.com/Leibnizhu/sonar-pmd-p3c-jdk17</url>
     <tag>HEAD</tag>
   </scm>
