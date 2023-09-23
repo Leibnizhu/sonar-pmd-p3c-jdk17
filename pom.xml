@@ -111,6 +111,7 @@
     <!-- Code Coverage -->
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <sonar.coverage.jacoco.xmlReportPaths>sonar-pmd-plugin/target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+    <maven.deploy.skip>true</maven.deploy.skip>
   </properties>
 
   <modules>
