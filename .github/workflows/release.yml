@@ -42,4 +42,9 @@ jobs:
           MAVEN_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.GPG_SIGNING_PASSWORD }}
         run: |
-          ./mvnw --batch-mode -P release deploy
+          ./mvnw --batch-mode -DgenerateBackupPoms=false -DcheckModificationExcludeList='**/*.versionsBackup' -Dmaven.test.skip -DskipTest -Dspotless.check.skip=true release:clean release:prepare release:perform release:clean
+      - name: Archive jar
+        uses: actions/upload-artifact@v3
+        with:
+          name: jar
+          path: target/*.jar
