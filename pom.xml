@@ -23,7 +23,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.sonarsource.pmd</groupId>
   <artifactId>sonar-pmd</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
   <name>SonarQube PMD Project</name>
   <packaging>pom</packaging>
 
@@ -31,7 +31,7 @@
     <connection>scm:git:https://Leibnizhu:${ACCESS_TOKEN}@github.com/Leibnizhu/sonar-pmd-p3c-jdk17.git</connection>
     <developerConnection>scm:git:https://Leibnizhu:${ACCESS_TOKEN}@github.com/Leibnizhu/sonar-pmd-p3c-jdk17.git</developerConnection>
     <url>https://github.com/Leibnizhu/sonar-pmd-p3c-jdk17</url>
-    <tag>1.0.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <url>https://github.com/jborgers/sonar-pmd</url>
