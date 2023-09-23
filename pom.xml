@@ -28,11 +28,12 @@
   <packaging>pom</packaging>
 
   <scm>
-    <connection>scm:git:git@github.com:jborgers/sonar-pmd.git</connection>
-    <developerConnection>scm:git:git@github.com:jborgers/sonar-pmd.git</developerConnection>
-    <url>https://github.com/jborgers/sonar-pmd</url>
+    <connection>scm:git:git@github.com:Leibnizhu/sonar-pmd-p3c-jdk17.git</connection>
+    <developerConnection>scm:git:git@github.com:Leibnizhu/sonar-pmd-p3c-jdk17.git</developerConnection>
+    <url>https://github.com/Leibnizhu/sonar-pmd-p3c-jdk17</url>
     <tag>HEAD</tag>
   </scm>
+
   <url>https://github.com/jborgers/sonar-pmd</url>
   <issueManagement>
     <system>Github</system>
@@ -357,7 +358,7 @@
                 <arg>loopback</arg>
               </gpgArguments>
             </configuration>
-          </plugin> 
+          </plugin>
           -->
         </plugins>
       </build>
