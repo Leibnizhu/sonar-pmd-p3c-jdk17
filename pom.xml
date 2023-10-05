@@ -90,7 +90,7 @@
     <sslr.squid.bridge.version>2.7.1.392</sslr.squid.bridge.version>
     <jdom.version>1.0</jdom.version>
     <!-- Sonar settings -->
-    <version.sonar-packaging.plugin>1.21.0.505</version.sonar-packaging.plugin>
+    <version.sonar-packaging.plugin>1.23.0.740</version.sonar-packaging.plugin>
     <sonar-plugin-api.version>9.4.0.54424</sonar-plugin-api.version>
     <sonar-orchestrator.version>4.2.0.542</sonar-orchestrator.version>
     <sonar-ws-client.version>5.1</sonar-ws-client.version>
@@ -231,7 +231,8 @@
           <artifactId>sonar-packaging-maven-plugin</artifactId>
           <version>${version.sonar-packaging.plugin}</version>
           <configuration>
-            <sonarQubeMinVersion>6.7</sonarQubeMinVersion>
+            <!--<sonarQubeMinVersion>6.7</sonarQubeMinVersion>-->
+            <pluginApiMinVersion>6.7</pluginApiMinVersion>
             <!--requirePlugins>java:5.14.0.18788</requirePlugins-->
           </configuration>
         </plugin>
